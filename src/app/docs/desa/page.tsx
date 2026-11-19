@@ -210,3 +210,4 @@ console.log(hasil); // []`}
     </article>
   );
 }
+

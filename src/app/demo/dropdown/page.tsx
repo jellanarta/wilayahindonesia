@@ -6,8 +6,8 @@ import { Layers, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Demo Form Bertingkat (Cascading Dropdown) - Wilayah Indonesia',
-  description: 'Uji coba form alamat 4 tingkat dinamis (Provinsi, Kabupaten, Kecamatan, Desa) secara real-time.',
+  title: 'Demo Wilayah Indonesia - Cascading Dropdown',
+  description: 'Uji coba form alamat bertingkat (Provinsi, Kabupaten, Kecamatan, Desa) secara real-time.',
 };
 
 export default function DropdownPage() {
@@ -31,10 +31,10 @@ export default function DropdownPage() {
             </div>
             <div>
               <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-                Demo Form Bertingkat (Cascading Dropdown)
+                Demo Wilayah Indonesia
               </h1>
               <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                Pilih Provinsi ➔ Kabupaten/Kota ➔ Kecamatan ➔ Desa secara otomatis & realtime
+                Simulasi pemilihan wilayah bertingkat: Provinsi NTB ➔ Lombok Tengah ➔ Praya ➔ Jago
               </p>
             </div>
           </div>

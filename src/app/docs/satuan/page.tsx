@@ -121,3 +121,4 @@ console.log(des?.nama); // "Cileunyi Kulon"`}
     </article>
   );
 }
+

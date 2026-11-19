@@ -10,10 +10,10 @@ import {
 import { Check, Copy, RefreshCw, ChevronRight, Layers, Code, CheckCircle2 } from 'lucide-react';
 
 export default function CascadingDemo() {
-  const [selectedProv, setSelectedProv] = useState<string>('32'); // default Jawa Barat
-  const [selectedKab, setSelectedKab] = useState<string>('3204'); // default Kab Bandung
-  const [selectedKec, setSelectedKec] = useState<string>('320405'); // default Cileunyi
-  const [selectedDesa, setSelectedDesa] = useState<string>('3204052001'); // default Cileunyi Kulon
+  const [selectedProv, setSelectedProv] = useState<string>('52'); // Nusa Tenggara Barat
+  const [selectedKab, setSelectedKab] = useState<string>('5202'); // Kabupaten Lombok Tengah
+  const [selectedKec, setSelectedKec] = useState<string>('520201'); // Kecamatan Praya
+  const [selectedDesa, setSelectedDesa] = useState<string>('5202012013'); // Desa Jago
   const [copied, setCopied] = useState<boolean>(false);
   const [mobileTab, setMobileTab] = useState<'form' | 'json'>('form');
 

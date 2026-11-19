@@ -23,7 +23,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Beranda' },
-    { href: '/demo/dropdown', label: 'Form Bertingkat', icon: Layers },
+    { href: '/demo/dropdown', label: 'Demo', icon: Layers },
     { href: '/demo/search', label: 'Pencarian', icon: Search },
     { href: '/demo/hierarchy', label: 'Cek Kode', icon: Compass },
     { href: '/docs', label: 'Dokumentasi', icon: BookOpen },

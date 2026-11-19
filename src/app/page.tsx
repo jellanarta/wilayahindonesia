@@ -32,13 +32,13 @@ export default function Home() {
 
   const featureCards = [
     {
-      title: 'Form Bertingkat',
+      title: 'Demo Wilayah',
       subtitle: 'Cascading Dropdown',
-      desc: 'Simulasi form 4 level (Provinsi ➔ Kabupaten ➔ Kecamatan ➔ Desa) dengan data reaktif dan live output JSON.',
+      desc: 'Simulasi pemilihan wilayah bertingkat (NTB ➔ Lombok Tengah ➔ Praya ➔ Jago) dengan live output data JSON.',
       href: '/demo/dropdown',
       icon: Layers,
       color: 'from-emerald-500 to-teal-600',
-      badge: 'Interactive',
+      badge: 'Interactive Demo',
     },
     {
       title: 'Pencarian Cerdas',
