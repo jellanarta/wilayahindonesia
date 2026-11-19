@@ -1,13 +1,31 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BreadcrumbDemo from '@/components/BreadcrumbDemo';
 import { Compass, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Cek Kode & Breadcrumb Inspector - Wilayah Indonesia',
-  description: 'Bongkar silsilah dan pohon hierarki wilayah lengkap dari sembarang kode dengan getDetailWilayah().',
+export const metadata: Metadata = {
+  title: 'Hierarchy Inspector - Cek Silsilah Kode Wilayah Kemendagri',
+  description:
+    'Bongkar pohon hierarki dan breadcrumb lengkap (Provinsi ➔ Kabupaten ➔ Kecamatan ➔ Desa) dari sembarang kode wilayah resmi.',
+  keywords: [
+    'cek kode wilayah kemendagri',
+    'hierarchy inspector wilayah',
+    'breadcrumb wilayah indonesia',
+    'struktur administrasi indonesia',
+    'getDetailWilayah',
+  ],
+  alternates: {
+    canonical: '/demo/hierarchy',
+  },
+  openGraph: {
+    title: 'Hierarchy Inspector - Cek Silsilah Kode Wilayah Kemendagri',
+    description:
+      'Bongkar silsilah dan pohon hierarki wilayah lengkap dari sembarang kode Kemendagri dengan getDetailWilayah().',
+    url: '/demo/hierarchy',
+  },
 };
 
 export default function HierarchyPage() {

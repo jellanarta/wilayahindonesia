@@ -1,10 +1,27 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Terminal, Sparkles, Check, CheckCircle2 } from 'lucide-react';
 
-export const metadata = {
-  title: 'Pengenalan & Instalasi - Dokumentasi Wilayah Indonesia',
-  description: 'Panduan awal cara menginstal dan menggunakan library daftar-wilayah-indonesia.',
+export const metadata: Metadata = {
+  title: 'Dokumentasi & Panduan Instalasi',
+  description:
+    'Panduan resmi instalasi, setup awal, dan konfigurasi library daftar-wilayah-indonesia untuk TypeScript, Node.js, Next.js, dan Vite.',
+  keywords: [
+    'dokumentasi wilayah indonesia',
+    'cara install daftar wilayah indonesia',
+    'setup library wilayah indonesia',
+    'panduan wilayah indonesia typescript',
+  ],
+  alternates: {
+    canonical: '/docs',
+  },
+  openGraph: {
+    title: 'Dokumentasi & Panduan Instalasi - Wilayah Indonesia',
+    description:
+      'Panduan awal cara menginstal dan menggunakan library daftar-wilayah-indonesia dengan contoh kode TypeScript dan ESM/CJS.',
+    url: '/docs',
+  },
 };
 
 export default function DocsIntroPage() {

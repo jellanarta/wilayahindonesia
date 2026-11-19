@@ -1,10 +1,27 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Tag, Check, Info, Sparkles } from 'lucide-react';
 
-export const metadata = {
-  title: 'Dokumentasi kecamatan() - Wilayah Indonesia',
-  description: 'Panduan lengkap cara menggunakan fungsi kecamatan() dengan format kode dengan titik atau tanpa titik.',
+export const metadata: Metadata = {
+  title: 'Dokumentasi kecamatan() - 7.265+ Kecamatan Indonesia',
+  description:
+    'Panduan lengkap cara menggunakan fungsi kecamatan() berdasarkan kode kabupaten/kota baik dengan titik maupun tanpa titik.',
+  keywords: [
+    'fungsi kecamatan',
+    'daftar 7265 kecamatan indonesia',
+    'filter kecamatan per kabupaten',
+    'kode kecamatan kemendagri',
+  ],
+  alternates: {
+    canonical: '/docs/kecamatan',
+  },
+  openGraph: {
+    title: 'Dokumentasi kecamatan() - 7.265+ Kecamatan Indonesia',
+    description:
+      'Panduan lengkap cara menggunakan fungsi kecamatan() dengan format kode dengan titik atau tanpa titik.',
+    url: '/docs/kecamatan',
+  },
 };
 
 export default function DocsKecamatanPage() {

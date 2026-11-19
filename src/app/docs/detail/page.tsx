@@ -1,10 +1,27 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Compass, Sparkles, CheckCircle2 } from 'lucide-react';
 
-export const metadata = {
-  title: 'Dokumentasi getDetailWilayah() - Wilayah Indonesia',
-  description: 'Panduan fungsi getDetailWilayah() untuk mendapatkan hierarki dan breadcrumb lengkap dari kode wilayah.',
+export const metadata: Metadata = {
+  title: 'Dokumentasi getDetailWilayah() - Silsilah Hierarki Wilayah',
+  description:
+    'Panduan fungsi getDetailWilayah() untuk membongkar pohon hierarki dan breadcrumb lengkap (Desa ➔ Kecamatan ➔ Kabupaten ➔ Provinsi) dari satu kode.',
+  keywords: [
+    'getDetailWilayah',
+    'hierarki wilayah indonesia',
+    'breadcrumb wilayah',
+    'pohon administrasi indonesia',
+  ],
+  alternates: {
+    canonical: '/docs/detail',
+  },
+  openGraph: {
+    title: 'Dokumentasi getDetailWilayah() - Silsilah Hierarki Wilayah',
+    description:
+      'Panduan fungsi getDetailWilayah() untuk mendapatkan hierarki dan breadcrumb lengkap dari kode wilayah.',
+    url: '/docs/detail',
+  },
 };
 
 export default function DocsDetailPage() {

@@ -1,13 +1,31 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SearchDemo from '@/components/SearchDemo';
 import { Search, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Demo Pencarian Wilayah - Wilayah Indonesia',
-  description: 'Cari wilayah dari 83.000+ data Indonesia secara instan dan case-insensitive.',
+export const metadata: Metadata = {
+  title: 'Pencarian Wilayah Instan - Cari Desa, Kecamatan, Kota',
+  description:
+    'Fitur pencarian instan dan fuzzy search dari 83.000+ data wilayah Indonesia (provinsi, kabupaten, kecamatan, desa) secara realtime dan akurat.',
+  keywords: [
+    'cari wilayah indonesia',
+    'pencarian desa indonesia',
+    'search kecamatan kelurahan',
+    'cari kode pos wilayah',
+    'search engine wilayah',
+  ],
+  alternates: {
+    canonical: '/demo/search',
+  },
+  openGraph: {
+    title: 'Pencarian Wilayah Instan - Cari Desa, Kecamatan, Kota',
+    description:
+      'Cari wilayah dari 83.000+ data Indonesia secara instan, case-insensitive, dan akurat.',
+    url: '/demo/search',
+  },
 };
 
 export default function SearchPage() {

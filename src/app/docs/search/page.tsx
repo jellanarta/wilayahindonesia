@@ -1,10 +1,29 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Search, Sparkles } from 'lucide-react';
 
-export const metadata = {
-  title: 'Dokumentasi Fungsi Pencarian (cari*) - Wilayah Indonesia',
-  description: 'Panduan fungsi cariWilayah, cariProvinsi, cariKabupaten, cariKecamatan, dan cariDesa.',
+export const metadata: Metadata = {
+  title: 'Dokumentasi Fungsi Pencarian (cari*) - Cari Wilayah Cerdas',
+  description:
+    'Panduan lengkap fungsi pencarian teks cerdas: cariWilayah(), cariProvinsi(), cariKabupaten(), cariKecamatan(), dan cariDesa().',
+  keywords: [
+    'cariWilayah',
+    'cariProvinsi',
+    'cariKabupaten',
+    'cariKecamatan',
+    'cariDesa',
+    'pencarian wilayah case insensitive',
+  ],
+  alternates: {
+    canonical: '/docs/search',
+  },
+  openGraph: {
+    title: 'Dokumentasi Fungsi Pencarian (cari*) - Cari Wilayah Cerdas',
+    description:
+      'Panduan fungsi cariWilayah, cariProvinsi, cariKabupaten, cariKecamatan, dan cariDesa.',
+    url: '/docs/search',
+  },
 };
 
 export default function DocsSearchPage() {

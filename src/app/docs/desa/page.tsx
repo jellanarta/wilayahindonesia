@@ -1,10 +1,27 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Home, Zap, ShieldCheck } from 'lucide-react';
 
-export const metadata = {
-  title: 'Dokumentasi desa() - Wilayah Indonesia',
-  description: 'Panduan lengkap cara menggunakan fungsi desa() untuk mendapatkan data desa dan kelurahan di Indonesia.',
+export const metadata: Metadata = {
+  title: 'Dokumentasi desa() - 83.345+ Desa dan Kelurahan',
+  description:
+    'Panduan lengkap fungsi desa() dengan arsitektur lazy loading memori efisien untuk mengambil daftar desa/kelurahan per kecamatan.',
+  keywords: [
+    'fungsi desa kelurahan',
+    '83345 desa indonesia',
+    'lazy loading data desa',
+    'kode kelurahan kemendagri',
+  ],
+  alternates: {
+    canonical: '/docs/desa',
+  },
+  openGraph: {
+    title: 'Dokumentasi desa() - 83.345+ Desa dan Kelurahan',
+    description:
+      'Panduan lengkap cara menggunakan fungsi desa() untuk mendapatkan data desa dan kelurahan di Indonesia.',
+    url: '/docs/desa',
+  },
 };
 
 export default function DocsDesaPage() {

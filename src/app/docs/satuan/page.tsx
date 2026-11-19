@@ -1,10 +1,28 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2, Code2 } from 'lucide-react';
 
-export const metadata = {
-  title: 'Dokumentasi Fungsi Satuan (get*) - Wilayah Indonesia',
-  description: 'Panduan fungsi getProvinsi, getKabupaten, getKecamatan, dan getDesa untuk mengambil satu objek data by kode.',
+export const metadata: Metadata = {
+  title: 'Dokumentasi Fungsi Satuan (get*) - Lookup O(1) by Kode',
+  description:
+    'Panduan fungsi getter instan O(1): getProvinsi(), getKabupaten(), getKecamatan(), dan getDesa() untuk mengambil satu objek wilayah berdasarkan kode Kemendagri.',
+  keywords: [
+    'getProvinsi',
+    'getKabupaten',
+    'getKecamatan',
+    'getDesa',
+    'lookup kode wilayah kemendagri',
+  ],
+  alternates: {
+    canonical: '/docs/satuan',
+  },
+  openGraph: {
+    title: 'Dokumentasi Fungsi Satuan (get*) - Lookup O(1) by Kode',
+    description:
+      'Panduan fungsi getProvinsi, getKabupaten, getKecamatan, dan getDesa untuk mengambil satu objek data by kode.',
+    url: '/docs/satuan',
+  },
 };
 
 export default function DocsSatuanPage() {

@@ -1,10 +1,27 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Building, Info, AlertTriangle } from 'lucide-react';
 
-export const metadata = {
-  title: 'Dokumentasi kabupaten() - Wilayah Indonesia',
-  description: 'Panduan lengkap cara menggunakan fungsi kabupaten() dengan atau tanpa parameter kode provinsi.',
+export const metadata: Metadata = {
+  title: 'Dokumentasi kabupaten() - 514 Kabupaten dan Kota',
+  description:
+    'Panduan lengkap fungsi kabupaten() untuk mengambil daftar kabupaten/kota per provinsi atau seluruh 514 kabupaten/kota di Indonesia.',
+  keywords: [
+    'fungsi kabupaten',
+    'daftar 514 kabupaten kota indonesia',
+    'filter kabupaten per provinsi',
+    'kode kabupaten kemendagri',
+  ],
+  alternates: {
+    canonical: '/docs/kabupaten',
+  },
+  openGraph: {
+    title: 'Dokumentasi kabupaten() - 514 Kabupaten dan Kota',
+    description:
+      'Panduan lengkap cara menggunakan fungsi kabupaten() dengan atau tanpa parameter kode provinsi.',
+    url: '/docs/kabupaten',
+  },
 };
 
 export default function DocsKabupatenPage() {

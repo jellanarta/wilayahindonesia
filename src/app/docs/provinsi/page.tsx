@@ -1,10 +1,28 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Map, CheckCircle2, Info } from 'lucide-react';
 
-export const metadata = {
-  title: 'Dokumentasi provinsi() - Wilayah Indonesia',
-  description: 'Panduan lengkap penggunaan fungsi provinsi() untuk mendapatkan daftar 38 provinsi di Indonesia.',
+export const metadata: Metadata = {
+  title: 'Dokumentasi provinsi() - Daftar 38 Provinsi Lengkap',
+  description:
+    'Panduan lengkap fungsi provinsi() untuk mendapatkan seluruh 38 provinsi di Indonesia termasuk 4 DOB Papua terbaru secara instan.',
+  keywords: [
+    'fungsi provinsi',
+    'daftar 38 provinsi indonesia',
+    'kode provinsi kemendagri',
+    'dob papua',
+    'api provinsi indonesia',
+  ],
+  alternates: {
+    canonical: '/docs/provinsi',
+  },
+  openGraph: {
+    title: 'Dokumentasi provinsi() - Daftar 38 Provinsi Lengkap',
+    description:
+      'Panduan lengkap fungsi provinsi() untuk mengambil seluruh 38 provinsi resmi di Indonesia dengan zero dependencies.',
+    url: '/docs/provinsi',
+  },
 };
 
 export default function DocsProvinsiPage() {

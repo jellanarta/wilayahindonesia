@@ -1,13 +1,31 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CascadingDemo from '@/components/CascadingDemo';
 import { Layers, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Demo Wilayah Indonesia - Cascading Dropdown',
-  description: 'Uji coba form alamat bertingkat (Provinsi, Kabupaten, Kecamatan, Desa) secara real-time.',
+export const metadata: Metadata = {
+  title: 'Demo Wilayah - Cascading Dropdown Bertingkat',
+  description:
+    'Simulasi interaktif dropdown bertingkat Provinsi, Kabupaten/Kota, Kecamatan, dan Desa/Kelurahan Indonesia dengan pencarian dan pratinjau JSON.',
+  keywords: [
+    'demo wilayah indonesia',
+    'cascading dropdown indonesia',
+    'select provinsi kabupaten kecamatan desa',
+    'form alamat indonesia',
+    'autocomplete wilayah',
+  ],
+  alternates: {
+    canonical: '/demo/dropdown',
+  },
+  openGraph: {
+    title: 'Demo Wilayah - Cascading Dropdown Bertingkat',
+    description:
+      'Simulasi interaktif form alamat bertingkat (Provinsi, Kabupaten, Kecamatan, Desa) dengan pencarian cerdas dan pratinjau JSON realtime.',
+    url: '/demo/dropdown',
+  },
 };
 
 export default function DropdownPage() {
