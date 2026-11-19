@@ -147,3 +147,4 @@ const hasilKab = cariWilayah('Bandung', { tingkat: 'kabupaten' });`,
     </div>
   );
 }
+
