@@ -7,13 +7,14 @@ import {
   kecamatan,
   desa,
 } from 'daftar-wilayah-indonesia';
-import { Check, Copy, RefreshCw, ChevronRight, Layers, Code, CheckCircle2 } from 'lucide-react';
+import CustomSelect, { SelectOption } from './CustomSelect';
+import { Check, Copy, RefreshCw, ChevronRight, Layers, Code } from 'lucide-react';
 
 export default function CascadingDemo() {
-  const [selectedProv, setSelectedProv] = useState<string>('52'); // Nusa Tenggara Barat
-  const [selectedKab, setSelectedKab] = useState<string>('5202'); // Kabupaten Lombok Tengah
-  const [selectedKec, setSelectedKec] = useState<string>('520201'); // Kecamatan Praya
-  const [selectedDesa, setSelectedDesa] = useState<string>('5202012013'); // Desa Jago
+  const [selectedProv, setSelectedProv] = useState<string>('52'); // default NTB
+  const [selectedKab, setSelectedKab] = useState<string>('5202'); // default Lombok Tengah
+  const [selectedKec, setSelectedKec] = useState<string>('520201'); // default Praya
+  const [selectedDesa, setSelectedDesa] = useState<string>('5202012013'); // default Jago
   const [copied, setCopied] = useState<boolean>(false);
   const [mobileTab, setMobileTab] = useState<'form' | 'json'>('form');
 
@@ -30,6 +31,47 @@ export default function CascadingDemo() {
   const listDesa = useMemo(
     () => (selectedKec ? desa(selectedKec) : []),
     [selectedKec]
+  );
+
+  // Map to SelectOption
+  const provOptions: SelectOption[] = useMemo(
+    () =>
+      listProvinsi.map((p) => ({
+        kode: p.kode,
+        nama: p.nama,
+        badge: p.kode,
+      })),
+    [listProvinsi]
+  );
+
+  const kabOptions: SelectOption[] = useMemo(
+    () =>
+      listKabupaten.map((k) => ({
+        kode: k.kode,
+        nama: k.nama,
+        badge: k.kode_kemendagri,
+      })),
+    [listKabupaten]
+  );
+
+  const kecOptions: SelectOption[] = useMemo(
+    () =>
+      listKecamatan.map((kc) => ({
+        kode: kc.kode,
+        nama: kc.nama,
+        badge: kc.kode_kemendagri,
+      })),
+    [listKecamatan]
+  );
+
+  const desaOptions: SelectOption[] = useMemo(
+    () =>
+      listDesa.map((d) => ({
+        kode: d.kode,
+        nama: d.nama,
+        badge: d.kode_kemendagri,
+      })),
+    [listDesa]
   );
 
   // Objects
@@ -60,7 +102,7 @@ export default function CascadingDemo() {
 
   return (
     <div className="space-y-6">
-      {/* Mobile Switch Tabs (Hanya muncul di HP) */}
+      {/* Mobile Switch Tabs */}
       <div className="flex lg:hidden bg-slate-200/80 p-1 rounded-xl">
         <button
           onClick={() => setMobileTab('form')}
@@ -100,10 +142,10 @@ export default function CascadingDemo() {
               </span>
               <div>
                 <h3 className="font-bold text-slate-900 text-sm sm:text-base">
-                  Cascading Dropdown Form
+                  Custom Searchable Dropdown
                 </h3>
                 <p className="text-[11px] sm:text-xs text-slate-500">
-                  Pilih Provinsi hingga Desa secara bertahap
+                  Ketik langsung di dalam dropdown untuk mencari data dengan cepat
                 </p>
               </div>
             </div>
@@ -141,101 +183,58 @@ export default function CascadingDemo() {
 
           <div className="space-y-4">
             {/* 1. Provinsi */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                1. Provinsi ({listProvinsi.length} Provinsi)
-              </label>
-              <select
-                value={selectedProv}
-                onChange={(e) => {
-                  setSelectedProv(e.target.value);
-                  setSelectedKab('');
-                  setSelectedKec('');
-                  setSelectedDesa('');
-                }}
-                className="w-full px-3 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
-              >
-                <option value="">-- Pilih Provinsi --</option>
-                {listProvinsi.map((p) => (
-                  <option key={p.kode} value={p.kode}>
-                    [{p.kode}] {p.nama}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <CustomSelect
+              label="1. Provinsi"
+              options={provOptions}
+              value={selectedProv}
+              placeholder="Pilih Provinsi..."
+              onChange={(val) => {
+                setSelectedProv(val);
+                setSelectedKab('');
+                setSelectedKec('');
+                setSelectedDesa('');
+              }}
+            />
 
             {/* 2. Kabupaten */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                2. Kabupaten / Kota ({listKabupaten.length} Tersedia)
-              </label>
-              <select
-                value={selectedKab}
-                disabled={!selectedProv}
-                onChange={(e) => {
-                  setSelectedKab(e.target.value);
-                  setSelectedKec('');
-                  setSelectedDesa('');
-                }}
-                className="w-full px-3 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent disabled:bg-slate-100 disabled:text-slate-400 transition"
-              >
-                <option value="">
-                  -- {selectedProv ? 'Pilih Kabupaten / Kota' : 'Pilih Provinsi Terlebih Dahulu'} --
-                </option>
-                {listKabupaten.map((k) => (
-                  <option key={k.kode} value={k.kode}>
-                    [{k.kode_kemendagri}] {k.nama}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <CustomSelect
+              label="2. Kabupaten / Kota"
+              options={kabOptions}
+              value={selectedKab}
+              disabled={!selectedProv}
+              placeholder="Pilih Kabupaten / Kota..."
+              disabledPlaceholder="Pilih Provinsi terlebih dahulu..."
+              onChange={(val) => {
+                setSelectedKab(val);
+                setSelectedKec('');
+                setSelectedDesa('');
+              }}
+            />
 
             {/* 3. Kecamatan */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                3. Kecamatan ({listKecamatan.length} Tersedia)
-              </label>
-              <select
-                value={selectedKec}
-                disabled={!selectedKab}
-                onChange={(e) => {
-                  setSelectedKec(e.target.value);
-                  setSelectedDesa('');
-                }}
-                className="w-full px-3 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent disabled:bg-slate-100 disabled:text-slate-400 transition"
-              >
-                <option value="">
-                  -- {selectedKab ? 'Pilih Kecamatan' : 'Pilih Kabupaten Terlebih Dahulu'} --
-                </option>
-                {listKecamatan.map((kc) => (
-                  <option key={kc.kode} value={kc.kode}>
-                    [{kc.kode_kemendagri}] {kc.nama}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <CustomSelect
+              label="3. Kecamatan"
+              options={kecOptions}
+              value={selectedKec}
+              disabled={!selectedKab}
+              placeholder="Pilih Kecamatan..."
+              disabledPlaceholder="Pilih Kabupaten terlebih dahulu..."
+              onChange={(val) => {
+                setSelectedKec(val);
+                setSelectedDesa('');
+              }}
+            />
 
             {/* 4. Desa */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                4. Desa / Kelurahan ({listDesa.length} Tersedia)
-              </label>
-              <select
-                value={selectedDesa}
-                disabled={!selectedKec}
-                onChange={(e) => setSelectedDesa(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent disabled:bg-slate-100 disabled:text-slate-400 transition"
-              >
-                <option value="">
-                  -- {selectedKec ? 'Pilih Desa / Kelurahan' : 'Pilih Kecamatan Terlebih Dahulu'} --
-                </option>
-                {listDesa.map((d) => (
-                  <option key={d.kode} value={d.kode}>
-                    [{d.kode_kemendagri}] {d.nama}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <CustomSelect
+              label="4. Desa / Kelurahan"
+              options={desaOptions}
+              value={selectedDesa}
+              disabled={!selectedKec}
+              placeholder="Pilih Desa / Kelurahan..."
+              disabledPlaceholder="Pilih Kecamatan terlebih dahulu..."
+              onChange={(val) => setSelectedDesa(val)}
+            />
           </div>
         </div>
 

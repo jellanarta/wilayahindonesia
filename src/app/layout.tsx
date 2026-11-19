@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import './globals.css';
+import TopProgressBar from '@/components/TopProgressBar';
 
 export const metadata: Metadata = {
   title: 'Daftar Wilayah Indonesia - Dokumentasi & Interactive Playground',
@@ -30,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth">
       <body className="antialiased selection:bg-emerald-500 selection:text-white">
+        <Suspense fallback={null}>
+          <TopProgressBar />
+        </Suspense>
         {children}
       </body>
     </html>
   );
 }
-
