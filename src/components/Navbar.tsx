@@ -65,11 +65,10 @@ export default function Navbar() {
               <NextLink
                 key={link.href}
                 href={link.href}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${
-                  active
+                className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${active
                     ? 'bg-white text-emerald-700 shadow-xs font-bold'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
-                }`}
+                  }`}
               >
                 {link.icon && <link.icon className="w-3.5 h-3.5 opacity-70" />}
                 <span>{link.label}</span>
@@ -123,11 +122,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${
-                    active
+                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${active
                       ? 'bg-emerald-50 text-emerald-800 font-bold border border-emerald-200'
                       : 'text-slate-700 hover:bg-slate-100'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-2.5">
                     {link.icon ? (
